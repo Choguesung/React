@@ -37,7 +37,7 @@ function App() {
 
         <div className="flex flex-col pl-5 justify-start border-b-2 border-gray-500 p-5">
           <div className="font-bold pb-5" >{ 글제목[2] }</div>
-          <div onClick={() => {setModal(true);}} >2월 17일 발행</div>
+          <div onClick={() => {setModal(true);}} >2월 17일 발행임</div>
         </div>
 
          {
