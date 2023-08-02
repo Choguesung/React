@@ -1,16 +1,32 @@
+import { useEffect, useState } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
-function Detail() {
+function Detail(props) {
+
+  useEffect(()=>{
+    
+  })
+
+  let [count, setCount] = useState(0)
+
+  let {id} = useParams();
+  let finded = props.shoes.find(function(x){
+    return x.id == id
+  });
+
     return(
        <Container>
+        {count}
+        <button onClick={()=>{setCount(count+1)}}> 버튼 </button>
          <Row>
           <Col>
-            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
+            <img src={'https://codingapple1.github.io/shop/shoes'+id+'.jpg'} width="100%" />
           </Col>
-          <Col>
-            <h4 className="pt-5">상품명</h4>
-            <p>상품설명</p>
-            <p>120000원</p>
+          <Col className='p-1'>
+            <p className="text-red-500">{finded.title}</p>
+            <p>{finded.content}</p>
+            <p>{finded.price}</p>
             <button className="btn btn-danger">주문하기</button>
           </Col>
          </Row>

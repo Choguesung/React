@@ -1,13 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import {Container,Row,Col } from 'react-bootstrap';
-import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
+import { useState } from 'react';
 import NavBar from './components/navbar';
 import Home from './pages/home';
 import Detail from './pages/detail';
+import data from './data'; 
+import axios from 'axios';
 
 
 function App() {
+
+  let [shoes] = useState(data);
 
   return (
     <div className="App">
@@ -15,21 +18,24 @@ function App() {
       <NavBar></NavBar>
 
       <Routes>
-        <Route path='/home' element={<Home></Home>} />
-        <Route path='/detail' element= {<Detail></Detail>}/>
-        
-        <Route path='/about' element= {<About/>}> 
-           <Route path='/member' element= {<About/>}/>
-           <Route path='/location' element= {<About/>}/>
-        </Route>
-        
+        <Route path='/' element={<Home/>} />
+        <Route path='/detail/:id' element= {<Detail shoes={shoes}/>}/>
         <Route path='*' element= {<div>404 페이지 넣자</div>}/>
       </Routes>
+
+      <button className='border border-black' onClick={()=>{
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((data)=>{
+          console.log(data.data)
+        })
+      }}>버튼</button>
 
       
     </div>
   );  
 }
+
+
 
 export default App;
 

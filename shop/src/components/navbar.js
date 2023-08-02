@@ -8,11 +8,11 @@ function NavBar() {
     return (
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="/home" className="text-gray-500">ShoeShop</Navbar.Brand>
+          <Navbar.Brand href="/" className="text-gray-500">ShoeShop</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link onClick={()=>{navigate('/home')}}>Home</Nav.Link>
+              <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
               <Nav.Link onClick={()=>{navigate('/detail')}}>Detail</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
