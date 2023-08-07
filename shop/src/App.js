@@ -4,6 +4,7 @@ import { useState } from 'react';
 import NavBar from './components/navbar';
 import Home from './pages/home';
 import Detail from './pages/detail';
+import Cart from './pages/cart';
 import data from './data'; 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/detail/:id' element= {<Detail shoes={shoes}/>}/>
+        <Route path='/cart' element={<Cart/>}/>
         <Route path='*' element= {<div>404 페이지 넣자</div>}/>
       </Routes>
  
