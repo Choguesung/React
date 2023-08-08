@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from './components/navbar';
 import Home from './pages/home';
 import Detail from './pages/detail';
@@ -9,8 +9,11 @@ import data from './data';
 
 function App() {
 
-  let [shoes,setShoes] = useState(data);
+  let obj = {name : 'kim'}
+  localStorage.setItem('data', JSON.stringify(obj))
 
+  let [shoes,setShoes] = useState(data);
+  
   return (
     <div className="App">
 
