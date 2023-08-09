@@ -9,6 +9,10 @@ import data from './data';
 
 function App() {
 
+  useEffect(()=>{
+
+  },[])
+
   let obj = {name : 'kim'}
   localStorage.setItem('data', JSON.stringify(obj))
 
