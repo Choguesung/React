@@ -6,7 +6,7 @@ app.set('view engine','ejs')
 
 var db;
 
-MongoClient.connect('mongodb+srv://admin:qwer1234@cluster0.gnxrofg.mongodb.net/?retryWrites=true&w=majority', function(에러, client){
+MongoClient.connect('mongodb+srv://admin:8dF2AP4Ci84es9Ip@cluster0.gnxrofg.mongodb.net/?retryWrites=true&w=majority', function(에러, client){
   if (에러) return console.log(에러)
 
   db = client.db('todoapp');
@@ -17,7 +17,7 @@ MongoClient.connect('mongodb+srv://admin:qwer1234@cluster0.gnxrofg.mongodb.net/?
 
   app.listen(8080, function() {
     console.log('listening on 8080')
-  })
+  });
 })
 
 
