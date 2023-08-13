@@ -1,18 +1,41 @@
-import {Container,Row,Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import data from '../data';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 function Home() {
-    let [shoes,setShoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
 
-    return(
-        <div>
-            <div className="main-bg"></div>
-            <Card shoes={shoes}></Card>
-            <MoreButton shoes={shoes} setShoes={setShoes}/>
-        </div>
-    )
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get('http://13.124.53.73/'); // 클라우드 서버 엔드포인트
+        setItems(response.data);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  console.log(items);
+
+  return (
+    <div>
+      <div className="main-bg"></div>
+      <Card shoes={shoes}></Card>
+      <MoreButton shoes={shoes} setShoes={setShoes} />
+      {items.map(item => (
+          <li key={item._id}>
+            <strong>{item.name} </strong>
+            <p>{item.email}</p>
+          </li>
+        ))}
+    </div>
+  )
 }
 
 export default Home;
@@ -45,16 +68,16 @@ function Card(props) {
 
 
 function MoreButton(props) {
-  return(
-    <button className='border border-black' onClick={()=>{
+  return (
+    <button className='border border-black' onClick={() => {
       axios.get('https://codingapple1.github.io/shop/data2.json')
-      .then((결과)=>{
-       console.log(결과.data);
-       let copy = [...props.shoes, ...결과.data];
-       props.setShoes(copy);
-     })
-     axios.post('/asd')
+        .then((결과) => {
+          console.log(결과.data);
+          let copy = [...props.shoes, ...결과.data];
+          props.setShoes(copy);
+        })
+      axios.post('/asd')
 
-     }}>버튼</button>
+    }}>버튼</button>
   )
 }
