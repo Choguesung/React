@@ -6,6 +6,7 @@ import Home from './pages/home';
 import Detail from './pages/detail';
 import Cart from './pages/cart';
 import data from './data'; 
+import Component from './pages/test';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/detail/:id' element= {<Detail shoes={shoes}/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/cart2' element={<Component/>}/>
         <Route path='*' element= {<div>404 페이지 넣자</div>}/>
       </Routes>
  

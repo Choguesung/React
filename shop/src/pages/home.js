@@ -31,7 +31,7 @@ function Home() {
       {items.map(item => (
           <li key={item._id}>
             <strong>{item.name} </strong>
-            <p>{item.email}</p>
+            <p>{item.team}</p>
           </li>
         ))}
     </div>

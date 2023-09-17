@@ -3,12 +3,8 @@ import { Container, Row, Col, Nav } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { addItem } from '../store';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 
 function Detail(props) {
-
-
-  
 
   let [tap, setTap] = useState(0)
   let dispatch = useDispatch()
