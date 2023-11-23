@@ -31,6 +31,7 @@ function MyComponent() {
 
 
   console.log(data)
+  // 커밋 테스트
 
   return (
     <div>
